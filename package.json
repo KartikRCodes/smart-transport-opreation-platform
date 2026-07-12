@@ -1,0 +1,12 @@
+{
+  "name": "smart-transport-operation-platform",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install-all": "concurrently \"npm install --prefix client\" \"npm install --prefix server\"",
+    "dev": "concurrently -n CLIENT,SERVER \"npm run dev --prefix client\" \"npm run dev --prefix server\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
