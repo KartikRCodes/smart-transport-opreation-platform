@@ -5,6 +5,7 @@ import RoleRoute from "./routes/RoleRoute";
 import DashboardLayout from "./layouts/DashboardLayout";
 import LoginPage from "./pages/LoginPage";
 import VehiclesPage from "./pages/VehiclesPage";
+import DriversPage from "./pages/DriversPage";
 
 // Temporary UI view placeholders for the hackathon workflow pages
 const MockPage = ({ title }) => (
@@ -45,7 +46,7 @@ function App() {
             
             <Route path="drivers" element={
               <RoleRoute module="drivers">
-                <MockPage title="Driver Management Pool" />
+                <DriversPage />
               </RoleRoute>
             } />
             
