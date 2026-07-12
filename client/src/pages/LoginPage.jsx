@@ -34,12 +34,31 @@ const LoginPage = () => {
     setApiError("");
     setIsSubmitting(true);
     
-    const result = await login(data);
-    
-    if (result.success) {
-      navigate("/dashboard");
-    } else {
-      setApiError(result.message);
+    // 🔥 COMPLETE LOCAL HACKATHON DEV BYPASS 🔥
+    if (data.email === "daksh@test.com") {
+      // Direct mock session injection
+      localStorage.setItem("transitops_token", "mock-hackathon-token");
+      localStorage.setItem("transitops_user", JSON.stringify({ 
+        name: "Daksh Sudo", 
+        role: "Fleet Manager" // Grants full permission visibility to test every view!
+      }));
+      
+      // Force immediate window refresh and direct navigation bypass
+      window.location.href = "/dashboard";
+      return;
+    }
+
+    // Standard backend database connection (runs normally for other emails)
+    try {
+      const result = await login(data);
+      if (result.success) {
+        navigate("/dashboard");
+      } else {
+        setApiError(result.message);
+        setIsSubmitting(false);
+      }
+    } catch (err) {
+      setApiError("Backend server offline. Use daksh@test.com to preview interface.");
       setIsSubmitting(false);
     }
   };

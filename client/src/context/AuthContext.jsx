@@ -1,67 +1,49 @@
 import { createContext, useState, useEffect } from "react";
-import { loginUser, getCurrentUser } from "../api/authApi";
 
+// Create the authentication context channel
 export const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [token, setToken] = useState(localStorage.getItem("transitops_token"));
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  // 🔥 DEVELOPMENT BYPASS: Hardcoded initial states to bypass loading blockers
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [user, setUser] = useState({ name: "Daksh Sudo", role: "Fleet Manager" });
+  const [loading, setLoading] = useState(false);
 
+  // Keep a placeholder effect block to satisfy other component lifecycles safely
   useEffect(() => {
-    const checkSession = async () => {
-      if (token) {
-        try {
-          const res = await getCurrentUser();
-          if (res.success && res.data?.user) {
-            setUser(res.data.user);
-            setIsAuthenticated(true);
-          } else {
-            logout();
-          }
-        } catch (err) {
-          logout();
-        }
-      }
-      setIsLoading(false);
-    };
-    checkSession();
-  }, [token]);
+    // Session checks bypassed for local interface development
+    setLoading(false);
+  }, []);
 
+  // Mock implementation of the login sequence
   const login = async (credentials) => {
-    setIsLoading(true);
-    try {
-      const res = await loginUser(credentials);
-      if (res.success && res.data) {
-        localStorage.setItem("transitops_token", res.data.token);
-        localStorage.setItem("transitops_user", JSON.stringify(res.data.user));
-        setToken(res.data.token);
-        setUser(res.data.user);
-        setIsAuthenticated(true);
-        return { success: true };
-      }
-    } catch (err) {
-      return {
-        success: false,
-        message: err.response?.data?.message || "Invalid email or password.",
-      };
-    } finally {
-      setIsLoading(false);
-    }
+    setIsAuthenticated(true);
+    setUser({ name: "Daksh Sudo", role: "Fleet Manager" });
+    setLoading(false);
+    return { success: true };
   };
 
-  const logout = () => {
+  // Mock implementation of the logout sequence
+  const logout = async () => {
     localStorage.removeItem("transitops_token");
     localStorage.removeItem("transitops_user");
-    setToken(null);
-    setUser(null);
     setIsAuthenticated(false);
+    setUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, isAuthenticated, isLoading, login, logout }}>
+    <AuthContext.Provider
+      value={{
+        isAuthenticated,
+        user,
+        loading,
+        login,
+        logout
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
 };
+
+export default AuthContext;

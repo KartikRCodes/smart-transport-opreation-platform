@@ -4,6 +4,7 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import RoleRoute from "./routes/RoleRoute";
 import DashboardLayout from "./layouts/DashboardLayout";
 import LoginPage from "./pages/LoginPage";
+import VehiclesPage from "./pages/VehiclesPage";
 
 // Temporary UI view placeholders for the hackathon workflow pages
 const MockPage = ({ title }) => (
@@ -38,7 +39,7 @@ function App() {
             
             <Route path="vehicles" element={
               <RoleRoute module="vehicles">
-                <MockPage title="Vehicle Registry" />
+              <VehiclesPage />
               </RoleRoute>
             } />
             
