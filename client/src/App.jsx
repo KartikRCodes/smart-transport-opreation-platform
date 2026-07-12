@@ -1,122 +1,84 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import ProtectedRoute from "./routes/ProtectedRoute";
+import RoleRoute from "./routes/RoleRoute";
+import DashboardLayout from "./layouts/DashboardLayout";
+import LoginPage from "./pages/LoginPage";
+
+// Temporary UI view placeholders for the hackathon workflow pages
+const MockPage = ({ title }) => (
+  <div style={{ background: "var(--surface)", padding: "1.5rem", borderRadius: "8px", border: "1px solid var(--border)" }}>
+    <h2 style={{ margin: 0 }}>{title} View</h2>
+    <p style={{ color: "var(--text-secondary)" }}>Live dynamic database components integrating shortly...</p>
+  </div>
+);
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          {/* Public Authentication Path */}
+          <Route path="/login" element={<LoginPage />} />
 
-      <div className="ticks"></div>
+          {/* Core Shielded Platform Shell */}
+          <Route 
+            path="/" 
+            element={
+              <ProtectedRoute>
+                <DashboardLayout />
+              </ProtectedRoute>
+            }
+          >
+            {/* Automatic Dynamic Fallback Redirect */}
+            <Route index element={<Navigate to="/dashboard" replace />} />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+            {/* Role-Filtered Operation Views */}
+            <Route path="dashboard" element={<MockPage title="Operational Analytics Dashboard" />} />
+            
+            <Route path="vehicles" element={
+              <RoleRoute module="vehicles">
+                <MockPage title="Vehicle Registry" />
+              </RoleRoute>
+            } />
+            
+            <Route path="drivers" element={
+              <RoleRoute module="drivers">
+                <MockPage title="Driver Management Pool" />
+              </RoleRoute>
+            } />
+            
+            <Route path="trips" element={
+              <RoleRoute module="trips">
+                <MockPage title="Trip Dispatch Hub" />
+              </RoleRoute>
+            } />
+            
+            <Route path="maintenance" element={
+              <RoleRoute module="maintenance">
+                <MockPage title="Maintenance Logs" />
+              </RoleRoute>
+            } />
+            
+            <Route path="fuel" element={
+              <RoleRoute module="fuel">
+                <MockPage title="Fuel Consumption Tracker" />
+              </RoleRoute>
+            } />
+            
+            <Route path="reports" element={
+              <RoleRoute module="reports">
+                <MockPage title="Platform ROI Reports" />
+              </RoleRoute>
+            } />
+          </Route>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+          {/* Missing Paths Catch-all */}
+          <Route path="*" element={<Navigate to="/dashboard" replace />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
+  );
 }
 
-export default App
+export default App;
