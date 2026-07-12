@@ -5,7 +5,7 @@ const tripRoutes = require("./routes/tripRoutes");
 const authRoutes = require("./routes/authRoutes");
 const vehicleRoutes = require("./routes/vehicleRoutes");
 const driverRoutes = require("./routes/driverRoutes");
-
+const maintenanceRoutes = require("./routes/maintenanceRoutes");
 const app = express();
 
 // Middleware
@@ -30,4 +30,5 @@ app.use("/api/auth", authRoutes);
 app.use("/api/vehicles", vehicleRoutes);
 app.use("/api/drivers", driverRoutes);
 app.use("/api/trips", tripRoutes);
+app.use("/api/maintenance", maintenanceRoutes);
 module.exports = app;
