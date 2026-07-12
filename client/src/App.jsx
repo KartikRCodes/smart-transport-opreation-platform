@@ -6,6 +6,8 @@ import DashboardLayout from "./layouts/DashboardLayout";
 import LoginPage from "./pages/LoginPage";
 import VehiclesPage from "./pages/VehiclesPage";
 import DriversPage from "./pages/DriversPage";
+import OverviewDashboardPage from "./pages/OverviewDashboardPage";
+
 
 // Temporary UI view placeholders for the hackathon workflow pages
 const MockPage = ({ title }) => (
@@ -36,7 +38,7 @@ function App() {
             <Route index element={<Navigate to="/dashboard" replace />} />
 
             {/* Role-Filtered Operation Views */}
-            <Route path="dashboard" element={<MockPage title="Operational Analytics Dashboard" />} />
+            <Route path="dashboard" element={<OverviewDashboardPage />} />
             
             <Route path="vehicles" element={
               <RoleRoute module="vehicles">
