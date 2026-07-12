@@ -7,6 +7,7 @@ import DashboardLayout from "./layouts/DashboardLayout";
 
 // Operational View Components
 import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 import OverviewDashboardPage from "./pages/OverviewDashboardPage";
 import VehiclesPage from "./pages/VehiclesPage";
 import DriversPage from "./pages/DriversPage";
@@ -42,6 +43,7 @@ function App() {
         <Routes>
           {/* Public Authentication Path */}
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
 
           {/* Core Shielded Platform Shell */}
           <Route

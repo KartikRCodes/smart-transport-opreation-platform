@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { Eye, EyeOff, Lock, Mail } from "lucide-react";
 
@@ -8,6 +8,7 @@ const LoginPage = () => {
   const { login, isAuthenticated } = useContext(AuthContext);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [showPassword, setShowPassword] = useState(false);
   const [apiError, setApiError] = useState("");
@@ -129,6 +130,23 @@ const LoginPage = () => {
             }}
           >
             {apiError}
+          </div>
+        )}
+
+        {location.state?.message && (
+          <div
+            style={{
+              background: "#DCFCE7",
+              border: "1px solid #86EFAC",
+              color: "#166534",
+              padding: "0.75rem 1rem",
+              borderRadius: "6px",
+              marginBottom: "1.25rem",
+              fontSize: "0.9rem",
+              fontWeight: "500",
+            }}
+          >
+            {location.state.message}
           </div>
         )}
 
@@ -309,6 +327,23 @@ const LoginPage = () => {
           >
             {isSubmitting ? "Authenticating..." : "Sign In"}
           </button>
+
+          <p
+            style={{
+              color: "#64748B",
+              fontSize: "0.875rem",
+              margin: "1.25rem 0 0",
+              textAlign: "center",
+            }}
+          >
+            New to TransitOps?{" "}
+            <Link
+              to="/register"
+              style={{ color: "#2563EB", fontWeight: "600", textDecoration: "none" }}
+            >
+              Create an account
+            </Link>
+          </p>
         </form>
       </div>
     </div>
