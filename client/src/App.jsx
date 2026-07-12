@@ -7,6 +7,7 @@ import LoginPage from "./pages/LoginPage";
 import VehiclesPage from "./pages/VehiclesPage";
 import DriversPage from "./pages/DriversPage";
 import OverviewDashboardPage from "./pages/OverviewDashboardPage";
+import TripsPage from "./pages/TripsPage";
 
 
 // Temporary UI view placeholders for the hackathon workflow pages
@@ -54,7 +55,7 @@ function App() {
             
             <Route path="trips" element={
               <RoleRoute module="trips">
-                <MockPage title="Trip Dispatch Hub" />
+                <TripsPage />
               </RoleRoute>
             } />
             
