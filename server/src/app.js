@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const config = require("./config/env");
-
+const tripRoutes = require("./routes/tripRoutes");
 const authRoutes = require("./routes/authRoutes");
 const vehicleRoutes = require("./routes/vehicleRoutes");
 const driverRoutes = require("./routes/driverRoutes");
@@ -29,5 +29,5 @@ app.get("/api/health", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/vehicles", vehicleRoutes);
 app.use("/api/drivers", driverRoutes);
-
+app.use("/api/trips", tripRoutes);
 module.exports = app;
