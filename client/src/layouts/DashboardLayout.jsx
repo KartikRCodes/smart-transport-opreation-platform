@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { 
@@ -41,6 +41,10 @@ const DashboardLayout = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isDark, setIsDark] = useState(localStorage.getItem("transitops_theme") === "dark");
 
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
+  }, [isDark]);
+
   const toggleTheme = () => {
     const nextTheme = !isDark;
     setIsDark(nextTheme);
@@ -76,7 +80,17 @@ const DashboardLayout = () => {
         <div>
           {/* Header Branding */}
           <div style={{ padding: "1.5rem", borderBottom: "1px solid #334155", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <h1 style={{ fontSize: "1.25rem", fontWeight: "bold", margin: 0, tracking: "wider" }}>TransitOps</h1>
+            <h1
+              style={{
+                fontSize: "1.25rem",
+                fontWeight: "bold",
+                margin: 0,
+                letterSpacing: "wider",
+                color: isDark ? "#F8FAFC" : "#2563EB",
+              }}
+            >
+              TransitOps
+            </h1>
             <button className="mobile-close-btn" onClick={() => setIsMobileOpen(false)} style={{ display: "none", background: "none", border: "none", color: "#F8FAFC" }}>
               <X size={20} />
             </button>

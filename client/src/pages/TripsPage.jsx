@@ -395,8 +395,8 @@ const TripsPage = () => {
     switch (status) {
       case "Draft":
         return {
-          background: "#F1F5F9",
-          color: "#475569",
+          background: "var(--surface-muted)",
+          color: "var(--text-secondary)",
         };
 
       case "Dispatched":
@@ -419,8 +419,8 @@ const TripsPage = () => {
 
       default:
         return {
-          background: "#F1F5F9",
-          color: "#475569",
+          background: "var(--surface-muted)",
+          color: "var(--text-secondary)",
         };
     }
   };
@@ -514,7 +514,7 @@ const TripsPage = () => {
             Trips & Dispatches
           </h1>
 
-          <p style={{ color: "#64748B", margin: 0 }}>
+          <p style={{ color: "var(--text-secondary)", margin: 0 }}>
             Create, dispatch, monitor, and manage cargo trips.
           </p>
         </div>
@@ -554,7 +554,7 @@ const TripsPage = () => {
             left: "0.75rem",
             top: "50%",
             transform: "translateY(-50%)",
-            color: "#94A3B8",
+            color: "var(--text-muted)",
             display: "flex",
           }}
         >
@@ -570,7 +570,7 @@ const TripsPage = () => {
             width: "100%",
             padding: "0.5rem 0.75rem 0.5rem 2.5rem",
             borderRadius: "6px",
-            border: "1px solid #CBD5E1",
+            border: "1px solid var(--border)",
             outline: "none",
             boxSizing: "border-box",
           }}
@@ -612,8 +612,8 @@ const TripsPage = () => {
       {/* Trips Table */}
       <div
         style={{
-          background: "#FFFFFF",
-          border: "1px solid #E2E8F0",
+          background: "var(--surface)",
+          border: "1px solid var(--border)",
           borderRadius: "8px",
           overflowX: "auto",
           boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
@@ -630,9 +630,9 @@ const TripsPage = () => {
           <thead>
             <tr
               style={{
-                background: "#F8FAFC",
+                background: "var(--bg)",
                 borderBottom: "1px solid #E2E8F0",
-                color: "#475569",
+                color: "var(--text-secondary)",
               }}
             >
               <th style={{ padding: "1rem" }}>Trip ID</th>
@@ -653,7 +653,7 @@ const TripsPage = () => {
                   style={{
                     padding: "3rem",
                     textAlign: "center",
-                    color: "#64748B",
+                    color: "var(--text-secondary)",
                   }}
                 >
                   No trips found.
@@ -670,7 +670,7 @@ const TripsPage = () => {
                     key={trip.id}
                     style={{
                       borderBottom: "1px solid #F1F5F9",
-                      color: "#0F172A",
+                      color: "var(--text-primary)",
                     }}
                   >
                     <td
@@ -695,9 +695,9 @@ const TripsPage = () => {
                       >
                         <MapPin
                           size={16}
-                          style={{ color: "#64748B" }}
+                          style={{ color: "var(--text-secondary)" }}
                         />
-                        {trip.source} → {trip.destination}
+                        {trip.source} â†’ {trip.destination}
                       </div>
                     </td>
 
@@ -709,11 +709,11 @@ const TripsPage = () => {
                       <div
                         style={{
                           fontSize: "0.75rem",
-                          color: "#64748B",
+                          color: "var(--text-secondary)",
                           marginTop: "0.2rem",
                         }}
                       >
-                        {trip.vehicle_name || "Unknown vehicle"} ·{" "}
+                        {trip.vehicle_name || "Unknown vehicle"} Â·{" "}
                         {trip.registration_number || "N/A"}
                       </div>
                     </td>
@@ -729,7 +729,7 @@ const TripsPage = () => {
                       <div
                         style={{
                           fontSize: "0.75rem",
-                          color: "#64748B",
+                          color: "var(--text-secondary)",
                           marginTop: "0.2rem",
                         }}
                       >
@@ -743,7 +743,7 @@ const TripsPage = () => {
                     <td
                       style={{
                         padding: "1rem",
-                        color: "#475569",
+                        color: "var(--text-secondary)",
                         whiteSpace: "nowrap",
                       }}
                     >
@@ -879,7 +879,7 @@ const TripsPage = () => {
               maxWidth: "700px",
               maxHeight: "90vh",
               overflowY: "auto",
-              background: "#FFFFFF",
+              background: "var(--surface)",
               borderRadius: "10px",
               padding: "1.5rem",
               boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
@@ -898,7 +898,7 @@ const TripsPage = () => {
                   style={{
                     margin: 0,
                     fontSize: "1.25rem",
-                    color: "#0F172A",
+                    color: "var(--text-primary)",
                   }}
                 >
                   Create New Trip
@@ -907,7 +907,7 @@ const TripsPage = () => {
                 <p
                   style={{
                     margin: "0.25rem 0 0",
-                    color: "#64748B",
+                    color: "var(--text-secondary)",
                     fontSize: "0.875rem",
                   }}
                 >
@@ -926,7 +926,7 @@ const TripsPage = () => {
                   cursor: isSubmitting
                     ? "not-allowed"
                     : "pointer",
-                  color: "#64748B",
+                  color: "var(--text-secondary)",
                   display: "flex",
                 }}
               >
@@ -965,7 +965,7 @@ const TripsPage = () => {
                         key={vehicle.id}
                         value={vehicle.id}
                       >
-                        {vehicle.vehicle_name} —{" "}
+                        {vehicle.vehicle_name} â€”{" "}
                         {vehicle.registration_number}
                       </option>
                     ))}
@@ -994,7 +994,7 @@ const TripsPage = () => {
                         key={driver.id}
                         value={driver.id}
                       >
-                        {driver.name} —{" "}
+                        {driver.name} â€”{" "}
                         {driver.license_number}
                       </option>
                     ))}
@@ -1104,9 +1104,9 @@ const TripsPage = () => {
                   disabled={isSubmitting}
                   style={{
                     padding: "0.65rem 1rem",
-                    background: "#FFFFFF",
-                    color: "#475569",
-                    border: "1px solid #CBD5E1",
+                    background: "var(--surface)",
+                    color: "var(--text-secondary)",
+                    border: "1px solid var(--border)",
                     borderRadius: "6px",
                     cursor: isSubmitting
                       ? "not-allowed"
@@ -1167,7 +1167,7 @@ const TripsPage = () => {
             style={{
               width: "100%",
               maxWidth: "500px",
-              background: "#FFFFFF",
+              background: "var(--surface)",
               borderRadius: "10px",
               padding: "1.5rem",
               boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
@@ -1186,7 +1186,7 @@ const TripsPage = () => {
                   style={{
                     margin: 0,
                     fontSize: "1.25rem",
-                    color: "#0F172A",
+                    color: "var(--text-primary)",
                   }}
                 >
                   Complete Trip #{selectedTrip.id}
@@ -1195,11 +1195,11 @@ const TripsPage = () => {
                 <p
                   style={{
                     margin: "0.25rem 0 0",
-                    color: "#64748B",
+                    color: "var(--text-secondary)",
                     fontSize: "0.875rem",
                   }}
                 >
-                  {selectedTrip.source} →{" "}
+                  {selectedTrip.source} â†’{" "}
                   {selectedTrip.destination}
                 </p>
               </div>
@@ -1214,7 +1214,7 @@ const TripsPage = () => {
                   cursor: isSubmitting
                     ? "not-allowed"
                     : "pointer",
-                  color: "#64748B",
+                  color: "var(--text-secondary)",
                   display: "flex",
                 }}
               >
@@ -1261,12 +1261,12 @@ const TripsPage = () => {
               <div
                 style={{
                   padding: "0.75rem",
-                  background: "#F8FAFC",
-                  border: "1px solid #E2E8F0",
+                  background: "var(--bg)",
+                  border: "1px solid var(--border)",
                   borderRadius: "6px",
                   marginBottom: "1.5rem",
                   fontSize: "0.8rem",
-                  color: "#475569",
+                  color: "var(--text-secondary)",
                 }}
               >
                 Completing this trip will update the vehicle odometer
@@ -1287,9 +1287,9 @@ const TripsPage = () => {
                   disabled={isSubmitting}
                   style={{
                     padding: "0.65rem 1rem",
-                    background: "#FFFFFF",
-                    color: "#475569",
-                    border: "1px solid #CBD5E1",
+                    background: "var(--surface)",
+                    color: "var(--text-secondary)",
+                    border: "1px solid var(--border)",
                     borderRadius: "6px",
                     cursor: isSubmitting
                       ? "not-allowed"
@@ -1337,19 +1337,19 @@ const labelStyle = {
   marginBottom: "0.4rem",
   fontSize: "0.8rem",
   fontWeight: "600",
-  color: "#334155",
+  color: "var(--text-primary)",
 };
 
 const inputStyle = {
   width: "100%",
   boxSizing: "border-box",
   padding: "0.65rem 0.75rem",
-  border: "1px solid #CBD5E1",
+  border: "1px solid var(--border)",
   borderRadius: "6px",
   outline: "none",
   fontSize: "0.9rem",
-  background: "#FFFFFF",
-  color: "#0F172A",
+  background: "var(--surface)",
+  color: "var(--text-primary)",
 };
 
 const actionButtonStyle = {

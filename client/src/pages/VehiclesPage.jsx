@@ -150,8 +150,8 @@ const VehiclesPage = () => {
 
       default:
         return {
-          background: "#F1F5F9",
-          color: "#475569",
+          background: "var(--surface-muted)",
+          color: "var(--text-secondary)",
         };
     }
   };
@@ -222,7 +222,7 @@ const VehiclesPage = () => {
 
           <p
             style={{
-              color: "#64748B",
+              color: "var(--text-secondary)",
               margin: 0,
             }}
           >
@@ -269,7 +269,7 @@ const VehiclesPage = () => {
             left: "0.75rem",
             top: "50%",
             transform: "translateY(-50%)",
-            color: "#94A3B8",
+            color: "var(--text-muted)",
             display: "flex",
           }}
         >
@@ -285,7 +285,7 @@ const VehiclesPage = () => {
             width: "100%",
             padding: "0.5rem 0.75rem 0.5rem 2.5rem",
             borderRadius: "6px",
-            border: "1px solid #CBD5E1",
+            border: "1px solid var(--border)",
             outline: "none",
             boxSizing: "border-box",
           }}
@@ -314,22 +314,22 @@ const VehiclesPage = () => {
           style={{
             textAlign: "center",
             padding: "3rem",
-            background: "#FFFFFF",
+            background: "var(--surface)",
             borderRadius: "8px",
-            border: "1px solid #E2E8F0",
+            border: "1px solid var(--border)",
           }}
         >
           <Truck
             size={48}
             style={{
-              color: "#94A3B8",
+              color: "var(--text-muted)",
               marginBottom: "1rem",
             }}
           />
 
           <p
             style={{
-              color: "#64748B",
+              color: "var(--text-secondary)",
               margin: 0,
             }}
           >
@@ -352,9 +352,9 @@ const VehiclesPage = () => {
               <div
                 key={vehicle.id}
                 style={{
-                  background: "#FFFFFF",
+                  background: "var(--surface)",
                   borderRadius: "8px",
-                  border: "1px solid #E2E8F0",
+                  border: "1px solid var(--border)",
                   padding: "1.25rem",
                   boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
                 }}
@@ -402,10 +402,10 @@ const VehiclesPage = () => {
                       <span
                         style={{
                           fontSize: "0.8rem",
-                          color: "#64748B",
+                          color: "var(--text-secondary)",
                         }}
                       >
-                        {vehicle.model || "No model"} ·{" "}
+                        {vehicle.model || "No model"} Â·{" "}
                         {vehicle.type || "Unknown type"}
                       </span>
                     </div>
@@ -444,7 +444,7 @@ const VehiclesPage = () => {
                       gap: "1rem",
                     }}
                   >
-                    <span style={{ color: "#64748B" }}>
+                    <span style={{ color: "var(--text-secondary)" }}>
                       Registration:
                     </span>
 
@@ -465,7 +465,7 @@ const VehiclesPage = () => {
                       gap: "1rem",
                     }}
                   >
-                    <span style={{ color: "#64748B" }}>
+                    <span style={{ color: "var(--text-secondary)" }}>
                       Max Load:
                     </span>
 
@@ -484,7 +484,7 @@ const VehiclesPage = () => {
                       gap: "1rem",
                     }}
                   >
-                    <span style={{ color: "#64748B" }}>
+                    <span style={{ color: "var(--text-secondary)" }}>
                       Odometer:
                     </span>
 
@@ -503,7 +503,7 @@ const VehiclesPage = () => {
                       gap: "1rem",
                     }}
                   >
-                    <span style={{ color: "#64748B" }}>
+                    <span style={{ color: "var(--text-secondary)" }}>
                       Region:
                     </span>
 
@@ -519,12 +519,12 @@ const VehiclesPage = () => {
                       gap: "1rem",
                     }}
                   >
-                    <span style={{ color: "#64748B" }}>
+                    <span style={{ color: "var(--text-secondary)" }}>
                       Acquisition Cost:
                     </span>
 
                     <span style={{ fontWeight: "500" }}>
-                      ₹
+                      â‚¹
                       {Number(
                         vehicle.acquisition_cost || 0
                       ).toLocaleString("en-IN")}
@@ -562,7 +562,7 @@ const VehiclesPage = () => {
               maxWidth: "650px",
               maxHeight: "90vh",
               overflowY: "auto",
-              background: "#FFFFFF",
+              background: "var(--surface)",
               borderRadius: "10px",
               padding: "1.5rem",
               boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
@@ -583,7 +583,7 @@ const VehiclesPage = () => {
                   style={{
                     margin: 0,
                     fontSize: "1.25rem",
-                    color: "#0F172A",
+                    color: "var(--text-primary)",
                   }}
                 >
                   Add Vehicle
@@ -592,7 +592,7 @@ const VehiclesPage = () => {
                 <p
                   style={{
                     margin: "0.25rem 0 0",
-                    color: "#64748B",
+                    color: "var(--text-secondary)",
                     fontSize: "0.875rem",
                   }}
                 >
@@ -609,7 +609,7 @@ const VehiclesPage = () => {
                   border: "none",
                   background: "transparent",
                   cursor: isSubmitting ? "not-allowed" : "pointer",
-                  color: "#64748B",
+                  color: "var(--text-secondary)",
                   padding: "0.25rem",
                   display: "flex",
                 }}
@@ -732,7 +732,7 @@ const VehiclesPage = () => {
                 {/* Acquisition Cost */}
                 <div>
                   <label style={labelStyle}>
-                    Acquisition Cost (₹) *
+                    Acquisition Cost (â‚¹) *
                   </label>
 
                   <input
@@ -783,9 +783,9 @@ const VehiclesPage = () => {
                   disabled={isSubmitting}
                   style={{
                     padding: "0.65rem 1rem",
-                    background: "#FFFFFF",
-                    color: "#475569",
-                    border: "1px solid #CBD5E1",
+                    background: "var(--surface)",
+                    color: "var(--text-secondary)",
+                    border: "1px solid var(--border)",
                     borderRadius: "6px",
                     cursor: isSubmitting
                       ? "not-allowed"
@@ -829,19 +829,19 @@ const labelStyle = {
   marginBottom: "0.4rem",
   fontSize: "0.8rem",
   fontWeight: "600",
-  color: "#334155",
+  color: "var(--text-primary)",
 };
 
 const inputStyle = {
   width: "100%",
   boxSizing: "border-box",
   padding: "0.65rem 0.75rem",
-  border: "1px solid #CBD5E1",
+  border: "1px solid var(--border)",
   borderRadius: "6px",
   outline: "none",
   fontSize: "0.9rem",
-  background: "#FFFFFF",
-  color: "#0F172A",
+  background: "var(--surface)",
+  color: "var(--text-primary)",
 };
 
 export default VehiclesPage;

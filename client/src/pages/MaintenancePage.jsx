@@ -274,7 +274,7 @@ const MaintenancePage = () => {
             Maintenance Schedule Manager
           </h1>
 
-          <p style={{ color: "#64748B", margin: 0 }}>
+          <p style={{ color: "var(--text-secondary)", margin: 0 }}>
             Manage vehicle maintenance records and service
             lifecycle.
           </p>
@@ -349,7 +349,7 @@ const MaintenancePage = () => {
             left: "0.75rem",
             top: "50%",
             transform: "translateY(-50%)",
-            color: "#94A3B8",
+            color: "var(--text-muted)",
             display: "flex",
           }}
         >
@@ -367,7 +367,7 @@ const MaintenancePage = () => {
             width: "100%",
             padding: "0.5rem 0.75rem 0.5rem 2.5rem",
             borderRadius: "6px",
-            border: "1px solid #CBD5E1",
+            border: "1px solid var(--border)",
             outline: "none",
             boxSizing: "border-box",
           }}
@@ -381,20 +381,20 @@ const MaintenancePage = () => {
           style={{
             textAlign: "center",
             padding: "3rem",
-            background: "#FFFFFF",
+            background: "var(--surface)",
             borderRadius: "8px",
-            border: "1px solid #E2E8F0",
+            border: "1px solid var(--border)",
           }}
         >
           <Wrench
             size={48}
             style={{
-              color: "#94A3B8",
+              color: "var(--text-muted)",
               marginBottom: "1rem",
             }}
           />
 
-          <p style={{ color: "#64748B", margin: 0 }}>
+          <p style={{ color: "var(--text-secondary)", margin: 0 }}>
             No maintenance records found.
           </p>
         </div>
@@ -411,9 +411,9 @@ const MaintenancePage = () => {
             <div
               key={log.id}
               style={{
-                background: "#FFFFFF",
+                background: "var(--surface)",
                 borderRadius: "8px",
-                border: "1px solid #E2E8F0",
+                border: "1px solid var(--border)",
                 padding: "1.25rem",
                 boxShadow:
                   "0 1px 3px rgba(0,0,0,0.05)",
@@ -440,8 +440,8 @@ const MaintenancePage = () => {
                   <div
                     style={{
                       padding: "0.5rem",
-                      background: "#F1F5F9",
-                      color: "#475569",
+                      background: "var(--surface-muted)",
+                      color: "var(--text-secondary)",
                       borderRadius: "6px",
                       display: "flex",
                     }}
@@ -463,7 +463,7 @@ const MaintenancePage = () => {
                     <span
                       style={{
                         fontSize: "0.8rem",
-                        color: "#64748B",
+                        color: "var(--text-secondary)",
                       }}
                     >
                       {log.registration_number}
@@ -504,7 +504,7 @@ const MaintenancePage = () => {
                 }}
               >
                 <div>
-                  <span style={{ color: "#64748B" }}>
+                  <span style={{ color: "var(--text-secondary)" }}>
                     Service:
                   </span>{" "}
                   <strong>{log.maintenance_type}</strong>
@@ -512,7 +512,7 @@ const MaintenancePage = () => {
 
                 {log.description && (
                   <div>
-                    <span style={{ color: "#64748B" }}>
+                    <span style={{ color: "var(--text-secondary)" }}>
                       Description:
                     </span>{" "}
                     {log.description}
@@ -528,7 +528,7 @@ const MaintenancePage = () => {
                 >
                   <span
                     style={{
-                      color: "#64748B",
+                      color: "var(--text-secondary)",
                       display: "flex",
                       alignItems: "center",
                       gap: "0.25rem",
@@ -550,7 +550,7 @@ const MaintenancePage = () => {
                       justifyContent: "space-between",
                     }}
                   >
-                    <span style={{ color: "#64748B" }}>
+                    <span style={{ color: "var(--text-secondary)" }}>
                       Completed:
                     </span>
 
@@ -568,7 +568,7 @@ const MaintenancePage = () => {
                 >
                   <span
                     style={{
-                      color: "#64748B",
+                      color: "var(--text-secondary)",
                       display: "flex",
                       alignItems: "center",
                       gap: "0.25rem",
@@ -581,10 +581,10 @@ const MaintenancePage = () => {
                   <span
                     style={{
                       fontWeight: "600",
-                      color: "#0F172A",
+                      color: "var(--text-primary)",
                     }}
                   >
-                    ₹
+                    â‚¹
                     {Number(log.cost || 0).toLocaleString(
                       "en-IN"
                     )}
@@ -653,7 +653,7 @@ const MaintenancePage = () => {
             style={{
               width: "100%",
               maxWidth: "520px",
-              background: "#FFFFFF",
+              background: "var(--surface)",
               borderRadius: "10px",
               padding: "1.5rem",
               maxHeight: "90vh",
@@ -684,7 +684,7 @@ const MaintenancePage = () => {
                   border: "none",
                   background: "transparent",
                   cursor: "pointer",
-                  color: "#64748B",
+                  color: "var(--text-secondary)",
                   display: "flex",
                 }}
               >
@@ -730,7 +730,7 @@ const MaintenancePage = () => {
                         key={vehicle.id}
                         value={vehicle.id}
                       >
-                        {vehicle.vehicle_name} —{" "}
+                        {vehicle.vehicle_name} â€”{" "}
                         {vehicle.registration_number}
                       </option>
                     ))}
@@ -837,8 +837,8 @@ const MaintenancePage = () => {
                     onClick={() => setShowModal(false)}
                     style={{
                       padding: "0.625rem 1rem",
-                      border: "1px solid #CBD5E1",
-                      background: "#FFFFFF",
+                      border: "1px solid var(--border)",
+                      background: "var(--surface)",
                       borderRadius: "6px",
                       cursor: "pointer",
                       fontWeight: "600",
@@ -885,7 +885,7 @@ const MaintenancePage = () => {
 const inputStyle = {
   width: "100%",
   padding: "0.625rem 0.75rem",
-  border: "1px solid #CBD5E1",
+  border: "1px solid var(--border)",
   borderRadius: "6px",
   outline: "none",
   boxSizing: "border-box",

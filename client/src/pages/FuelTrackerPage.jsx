@@ -340,7 +340,7 @@ const FuelTrackerPage = () => {
             Fuel Consumption Tracker
           </h1>
 
-          <p style={{ color: "#64748B", margin: 0 }}>
+          <p style={{ color: "var(--text-secondary)", margin: 0 }}>
             Log refueling entries, track transaction costs, and
             evaluate real fleet efficiency.
           </p>
@@ -414,7 +414,7 @@ const FuelTrackerPage = () => {
             left: "0.75rem",
             top: "50%",
             transform: "translateY(-50%)",
-            color: "#94A3B8",
+            color: "var(--text-muted)",
             display: "flex",
           }}
         >
@@ -432,7 +432,7 @@ const FuelTrackerPage = () => {
             width: "100%",
             padding: "0.5rem 0.75rem 0.5rem 2.5rem",
             borderRadius: "6px",
-            border: "1px solid #CBD5E1",
+            border: "1px solid var(--border)",
             outline: "none",
             boxSizing: "border-box",
           }}
@@ -446,20 +446,20 @@ const FuelTrackerPage = () => {
           style={{
             textAlign: "center",
             padding: "3rem",
-            background: "#FFFFFF",
+            background: "var(--surface)",
             borderRadius: "8px",
-            border: "1px solid #E2E8F0",
+            border: "1px solid var(--border)",
           }}
         >
           <Fuel
             size={48}
             style={{
-              color: "#94A3B8",
+              color: "var(--text-muted)",
               marginBottom: "1rem",
             }}
           />
 
-          <p style={{ color: "#64748B", margin: 0 }}>
+          <p style={{ color: "var(--text-secondary)", margin: 0 }}>
             No fuel logs found.
           </p>
         </div>
@@ -476,9 +476,9 @@ const FuelTrackerPage = () => {
             <div
               key={log.id}
               style={{
-                background: "#FFFFFF",
+                background: "var(--surface)",
                 borderRadius: "8px",
-                border: "1px solid #E2E8F0",
+                border: "1px solid var(--border)",
                 padding: "1.25rem",
                 boxShadow:
                   "0 1px 3px rgba(0,0,0,0.05)",
@@ -528,7 +528,7 @@ const FuelTrackerPage = () => {
                     <span
                       style={{
                         fontSize: "0.8rem",
-                        color: "#64748B",
+                        color: "var(--text-secondary)",
                       }}
                     >
                       {log.registration_number || "N/A"}
@@ -541,7 +541,7 @@ const FuelTrackerPage = () => {
                     fontSize: "0.75rem",
                     fontWeight: "600",
                     fontFamily: "monospace",
-                    color: "#64748B",
+                    color: "var(--text-secondary)",
                   }}
                 >
                   #{log.id}
@@ -569,7 +569,7 @@ const FuelTrackerPage = () => {
                 >
                   <span
                     style={{
-                      color: "#64748B",
+                      color: "var(--text-secondary)",
                       display: "flex",
                       alignItems: "center",
                       gap: "0.25rem",
@@ -593,7 +593,7 @@ const FuelTrackerPage = () => {
                 >
                   <span
                     style={{
-                      color: "#64748B",
+                      color: "var(--text-secondary)",
                       display: "flex",
                       alignItems: "center",
                       gap: "0.25rem",
@@ -606,7 +606,7 @@ const FuelTrackerPage = () => {
                   <span
                     style={{
                       fontWeight: "600",
-                      color: "#0F172A",
+                      color: "var(--text-primary)",
                     }}
                   >
                     {Number(log.liters).toLocaleString("en-IN")} L
@@ -622,7 +622,7 @@ const FuelTrackerPage = () => {
                 >
                   <span
                     style={{
-                      color: "#64748B",
+                      color: "var(--text-secondary)",
                       display: "flex",
                       alignItems: "center",
                       gap: "0.25rem",
@@ -638,7 +638,7 @@ const FuelTrackerPage = () => {
                       color: "#16A34A",
                     }}
                   >
-                    ₹
+                    â‚¹
                     {Number(log.cost || 0).toLocaleString(
                       "en-IN"
                     )}
@@ -658,7 +658,7 @@ const FuelTrackerPage = () => {
                         display: "flex",
                         alignItems: "center",
                         gap: "0.35rem",
-                        color: "#475569",
+                        color: "var(--text-secondary)",
                         marginBottom: "0.4rem",
                       }}
                     >
@@ -674,7 +674,7 @@ const FuelTrackerPage = () => {
                             display: "flex",
                             alignItems: "flex-start",
                             gap: "0.35rem",
-                            color: "#64748B",
+                            color: "var(--text-secondary)",
                             fontSize: "0.8rem",
                           }}
                         >
@@ -687,7 +687,7 @@ const FuelTrackerPage = () => {
                           />
 
                           <span>
-                            {log.trip_source} →{" "}
+                            {log.trip_source} â†’{" "}
                             {log.trip_destination}
                           </span>
                         </div>
@@ -704,7 +704,7 @@ const FuelTrackerPage = () => {
                         gap: "1rem",
                       }}
                     >
-                      <span style={{ color: "#64748B" }}>
+                      <span style={{ color: "var(--text-secondary)" }}>
                         Actual Distance:
                       </span>
 
@@ -779,7 +779,7 @@ const FuelTrackerPage = () => {
             style={{
               width: "100%",
               maxWidth: "560px",
-              background: "#FFFFFF",
+              background: "var(--surface)",
               borderRadius: "10px",
               padding: "1.5rem",
               maxHeight: "90vh",
@@ -802,7 +802,7 @@ const FuelTrackerPage = () => {
                   style={{
                     margin: 0,
                     fontSize: "1.25rem",
-                    color: "#0F172A",
+                    color: "var(--text-primary)",
                   }}
                 >
                   Log Refueling
@@ -811,7 +811,7 @@ const FuelTrackerPage = () => {
                 <p
                   style={{
                     margin: "0.25rem 0 0",
-                    color: "#64748B",
+                    color: "var(--text-secondary)",
                     fontSize: "0.875rem",
                   }}
                 >
@@ -829,7 +829,7 @@ const FuelTrackerPage = () => {
                   cursor: submitting
                     ? "not-allowed"
                     : "pointer",
-                  color: "#64748B",
+                  color: "var(--text-secondary)",
                   display: "flex",
                 }}
               >
@@ -869,7 +869,7 @@ const FuelTrackerPage = () => {
                         key={vehicle.id}
                         value={vehicle.id}
                       >
-                        {vehicle.vehicle_name} —{" "}
+                        {vehicle.vehicle_name} â€”{" "}
                         {vehicle.registration_number}
                       </option>
                     ))}
@@ -905,7 +905,7 @@ const FuelTrackerPage = () => {
                         key={trip.id}
                         value={trip.id}
                       >
-                        Trip #{trip.id} — {trip.source} →{" "}
+                        Trip #{trip.id} â€” {trip.source} â†’{" "}
                         {trip.destination} ({trip.status})
                       </option>
                     ))}
@@ -915,7 +915,7 @@ const FuelTrackerPage = () => {
                     availableTrips.length === 0 && (
                       <p
                         style={{
-                          color: "#64748B",
+                          color: "var(--text-secondary)",
                           fontSize: "0.75rem",
                           margin: "0.35rem 0 0",
                         }}
@@ -988,7 +988,7 @@ const FuelTrackerPage = () => {
                     style={{
                       margin: "0.35rem 0 0",
                       fontSize: "0.75rem",
-                      color: "#64748B",
+                      color: "var(--text-secondary)",
                     }}
                   >
                     Leave empty to use today's date.
@@ -1011,9 +1011,9 @@ const FuelTrackerPage = () => {
                     disabled={submitting}
                     style={{
                       padding: "0.625rem 1rem",
-                      border: "1px solid #CBD5E1",
-                      background: "#FFFFFF",
-                      color: "#475569",
+                      border: "1px solid var(--border)",
+                      background: "var(--surface)",
+                      color: "var(--text-secondary)",
                       borderRadius: "6px",
                       cursor: submitting
                         ? "not-allowed"
@@ -1062,18 +1062,18 @@ const labelStyle = {
   marginBottom: "0.4rem",
   fontWeight: "600",
   fontSize: "0.875rem",
-  color: "#334155",
+  color: "var(--text-primary)",
 };
 
 const inputStyle = {
   width: "100%",
   padding: "0.625rem 0.75rem",
-  border: "1px solid #CBD5E1",
+  border: "1px solid var(--border)",
   borderRadius: "6px",
   outline: "none",
   boxSizing: "border-box",
   fontFamily: "inherit",
-  color: "#0F172A",
+  color: "var(--text-primary)",
 };
 
 export default FuelTrackerPage;

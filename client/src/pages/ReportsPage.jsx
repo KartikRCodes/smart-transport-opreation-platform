@@ -68,7 +68,7 @@ const ReportsPage = () => {
   };
 
   const formatCurrency = (value) => {
-    return `₹${toNumber(value).toLocaleString("en-IN", {
+    return `â‚¹${toNumber(value).toLocaleString("en-IN", {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     })}`;
@@ -257,14 +257,14 @@ const ReportsPage = () => {
 
       case "Retired":
         return {
-          background: "#F1F5F9",
-          color: "#64748B",
+          background: "var(--surface-muted)",
+          color: "var(--text-secondary)",
         };
 
       default:
         return {
-          background: "#F1F5F9",
-          color: "#475569",
+          background: "var(--surface-muted)",
+          color: "var(--text-secondary)",
         };
     }
   };
@@ -313,7 +313,7 @@ const ReportsPage = () => {
             Performance & ROI Intelligence
           </h1>
 
-          <p style={{ color: "#64748B", margin: 0 }}>
+          <p style={{ color: "var(--text-secondary)", margin: 0 }}>
             Real vehicle performance, operational costs, fuel
             efficiency, revenue, and ROI analytics.
           </p>
@@ -469,7 +469,7 @@ const ReportsPage = () => {
             left: "0.75rem",
             top: "50%",
             transform: "translateY(-50%)",
-            color: "#94A3B8",
+            color: "var(--text-muted)",
             display: "flex",
           }}
         >
@@ -487,7 +487,7 @@ const ReportsPage = () => {
             width: "100%",
             padding: "0.625rem 0.75rem 0.625rem 2.5rem",
             borderRadius: "6px",
-            border: "1px solid #CBD5E1",
+            border: "1px solid var(--border)",
             outline: "none",
             boxSizing: "border-box",
           }}
@@ -508,8 +508,8 @@ const ReportsPage = () => {
 
       <div
         style={{
-          background: "#FFFFFF",
-          border: "1px solid #E2E8F0",
+          background: "var(--surface)",
+          border: "1px solid var(--border)",
           borderRadius: "8px",
           overflowX: "auto",
           boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
@@ -520,7 +520,7 @@ const ReportsPage = () => {
             style={{
               textAlign: "center",
               padding: "3rem",
-              color: "#64748B",
+              color: "var(--text-secondary)",
             }}
           >
             <Truck
@@ -545,9 +545,9 @@ const ReportsPage = () => {
             <thead>
               <tr
                 style={{
-                  background: "#F8FAFC",
+                  background: "var(--bg)",
                   borderBottom: "1px solid #E2E8F0",
-                  color: "#475569",
+                  color: "var(--text-secondary)",
                 }}
               >
                 <th style={tableHeaderStyle}>Vehicle</th>
@@ -577,7 +577,7 @@ const ReportsPage = () => {
                     key={vehicle.vehicle_id}
                     style={{
                       borderBottom: "1px solid #F1F5F9",
-                      color: "#0F172A",
+                      color: "var(--text-primary)",
                     }}
                   >
                     <td style={tableCellStyle}>
@@ -588,7 +588,7 @@ const ReportsPage = () => {
                       <div
                         style={{
                           fontSize: "0.75rem",
-                          color: "#64748B",
+                          color: "var(--text-secondary)",
                           marginTop: "0.2rem",
                         }}
                       >
@@ -598,13 +598,13 @@ const ReportsPage = () => {
                       <div
                         style={{
                           fontSize: "0.7rem",
-                          color: "#94A3B8",
+                          color: "var(--text-muted)",
                           marginTop: "0.15rem",
                         }}
                       >
                         {vehicle.type}
                         {vehicle.region
-                          ? ` • ${vehicle.region}`
+                          ? ` â€¢ ${vehicle.region}`
                           : ""}
                       </div>
                     </td>
@@ -738,8 +738,8 @@ const SummaryCard = ({
   return (
     <div
       style={{
-        background: "#FFFFFF",
-        border: "1px solid #E2E8F0",
+        background: "var(--surface)",
+        border: "1px solid var(--border)",
         borderRadius: "8px",
         padding: "1.25rem",
         display: "flex",
@@ -752,7 +752,7 @@ const SummaryCard = ({
         <span
           style={{
             fontSize: "0.8rem",
-            color: "#64748B",
+            color: "var(--text-secondary)",
             fontWeight: "500",
           }}
         >
@@ -763,7 +763,7 @@ const SummaryCard = ({
           style={{
             fontSize: "1.5rem",
             margin: "0.35rem 0",
-            color: "#0F172A",
+            color: "var(--text-primary)",
           }}
         >
           {value}
@@ -772,7 +772,7 @@ const SummaryCard = ({
         <span
           style={{
             fontSize: "0.75rem",
-            color: "#64748B",
+            color: "var(--text-secondary)",
           }}
         >
           {subtitle}
@@ -812,8 +812,8 @@ const InsightCard = ({
   return (
     <div
       style={{
-        background: "#FFFFFF",
-        border: "1px solid #E2E8F0",
+        background: "var(--surface)",
+        border: "1px solid var(--border)",
         borderRadius: "8px",
         padding: "1.25rem",
       }}
@@ -826,7 +826,7 @@ const InsightCard = ({
           display: "flex",
           alignItems: "center",
           gap: "0.5rem",
-          color: "#334155",
+          color: "var(--text-primary)",
         }}
       >
         <span style={{ color, display: "flex" }}>
@@ -840,7 +840,7 @@ const InsightCard = ({
         style={{
           fontSize: "1.5rem",
           margin: "0 0 0.35rem",
-          color: "#0F172A",
+          color: "var(--text-primary)",
         }}
       >
         {value}
@@ -849,7 +849,7 @@ const InsightCard = ({
       <p
         style={{
           fontSize: "0.8rem",
-          color: "#64748B",
+          color: "var(--text-secondary)",
           margin: 0,
         }}
       >

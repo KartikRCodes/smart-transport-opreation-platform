@@ -160,8 +160,8 @@ const DriversPage = () => {
 
       default:
         return {
-          background: "#F1F5F9",
-          color: "#475569",
+          background: "var(--surface-muted)",
+          color: "var(--text-secondary)",
         };
     }
   };
@@ -194,8 +194,8 @@ const DriversPage = () => {
 
       default:
         return {
-          background: "#F1F5F9",
-          color: "#475569",
+          background: "var(--surface-muted)",
+          color: "var(--text-secondary)",
         };
     }
   };
@@ -287,7 +287,7 @@ const DriversPage = () => {
 
           <p
             style={{
-              color: "#64748B",
+              color: "var(--text-secondary)",
               margin: 0,
             }}
           >
@@ -334,7 +334,7 @@ const DriversPage = () => {
             left: "0.75rem",
             top: "50%",
             transform: "translateY(-50%)",
-            color: "#94A3B8",
+            color: "var(--text-muted)",
             display: "flex",
           }}
         >
@@ -350,7 +350,7 @@ const DriversPage = () => {
             width: "100%",
             padding: "0.5rem 0.75rem 0.5rem 2.5rem",
             borderRadius: "6px",
-            border: "1px solid #CBD5E1",
+            border: "1px solid var(--border)",
             outline: "none",
             boxSizing: "border-box",
           }}
@@ -379,22 +379,22 @@ const DriversPage = () => {
           style={{
             textAlign: "center",
             padding: "3rem",
-            background: "#FFFFFF",
+            background: "var(--surface)",
             borderRadius: "8px",
-            border: "1px solid #E2E8F0",
+            border: "1px solid var(--border)",
           }}
         >
           <UserX
             size={48}
             style={{
-              color: "#94A3B8",
+              color: "var(--text-muted)",
               marginBottom: "1rem",
             }}
           />
 
           <p
             style={{
-              color: "#64748B",
+              color: "var(--text-secondary)",
               margin: 0,
             }}
           >
@@ -418,9 +418,9 @@ const DriversPage = () => {
               <div
                 key={driver.id}
                 style={{
-                  background: "#FFFFFF",
+                  background: "var(--surface)",
                   borderRadius: "8px",
-                  border: "1px solid #E2E8F0",
+                  border: "1px solid var(--border)",
                   padding: "1.25rem",
                   boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
                 }}
@@ -472,7 +472,7 @@ const DriversPage = () => {
                       <span
                         style={{
                           fontSize: "0.8rem",
-                          color: "#64748B",
+                          color: "var(--text-secondary)",
                         }}
                       >
                         Safety Score:{" "}
@@ -587,7 +587,7 @@ const DriversPage = () => {
               maxWidth: "650px",
               maxHeight: "90vh",
               overflowY: "auto",
-              background: "#FFFFFF",
+              background: "var(--surface)",
               borderRadius: "10px",
               padding: "1.5rem",
               boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
@@ -608,7 +608,7 @@ const DriversPage = () => {
                   style={{
                     margin: 0,
                     fontSize: "1.25rem",
-                    color: "#0F172A",
+                    color: "var(--text-primary)",
                   }}
                 >
                   Add Driver
@@ -617,7 +617,7 @@ const DriversPage = () => {
                 <p
                   style={{
                     margin: "0.25rem 0 0",
-                    color: "#64748B",
+                    color: "var(--text-secondary)",
                     fontSize: "0.875rem",
                   }}
                 >
@@ -634,7 +634,7 @@ const DriversPage = () => {
                   border: "none",
                   background: "transparent",
                   cursor: isSubmitting ? "not-allowed" : "pointer",
-                  color: "#64748B",
+                  color: "var(--text-secondary)",
                   padding: "0.25rem",
                   display: "flex",
                 }}
@@ -764,9 +764,9 @@ const DriversPage = () => {
                   disabled={isSubmitting}
                   style={{
                     padding: "0.65rem 1rem",
-                    background: "#FFFFFF",
-                    color: "#475569",
-                    border: "1px solid #CBD5E1",
+                    background: "var(--surface)",
+                    color: "var(--text-secondary)",
+                    border: "1px solid var(--border)",
                     borderRadius: "6px",
                     cursor: isSubmitting
                       ? "not-allowed"
@@ -810,19 +810,19 @@ const labelStyle = {
   marginBottom: "0.4rem",
   fontSize: "0.8rem",
   fontWeight: "600",
-  color: "#334155",
+  color: "var(--text-primary)",
 };
 
 const inputStyle = {
   width: "100%",
   boxSizing: "border-box",
   padding: "0.65rem 0.75rem",
-  border: "1px solid #CBD5E1",
+  border: "1px solid var(--border)",
   borderRadius: "6px",
   outline: "none",
   fontSize: "0.9rem",
-  background: "#FFFFFF",
-  color: "#0F172A",
+  background: "var(--surface)",
+  color: "var(--text-primary)",
 };
 
 const detailRowStyle = {
@@ -833,7 +833,7 @@ const detailRowStyle = {
 };
 
 const detailLabelStyle = {
-  color: "#64748B",
+  color: "var(--text-secondary)",
   display: "flex",
   alignItems: "center",
   gap: "0.35rem",

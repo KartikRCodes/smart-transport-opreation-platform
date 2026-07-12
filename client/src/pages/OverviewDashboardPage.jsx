@@ -128,7 +128,7 @@ const OverviewDashboardPage = () => {
           Operations Overview
         </h1>
 
-        <p style={{ color: "#64748B", margin: 0 }}>
+        <p style={{ color: "var(--text-secondary)", margin: 0 }}>
           Real-time fleet, driver, trip, and maintenance metrics.
         </p>
       </div>
@@ -164,8 +164,8 @@ const OverviewDashboardPage = () => {
           <div
             key={card.title}
             style={{
-              background: "#FFFFFF",
-              border: "1px solid #E2E8F0",
+              background: "var(--surface)",
+              border: "1px solid var(--border)",
               borderRadius: "8px",
               padding: "1.5rem",
               display: "flex",
@@ -178,7 +178,7 @@ const OverviewDashboardPage = () => {
               <span
                 style={{
                   fontSize: "0.875rem",
-                  color: "#64748B",
+                  color: "var(--text-secondary)",
                   fontWeight: "500",
                 }}
               >
@@ -190,7 +190,7 @@ const OverviewDashboardPage = () => {
                   fontSize: "2rem",
                   fontWeight: "bold",
                   margin: "0.25rem 0",
-                  color: "#0F172A",
+                  color: "var(--text-primary)",
                 }}
               >
                 {card.value}
@@ -199,7 +199,7 @@ const OverviewDashboardPage = () => {
               <span
                 style={{
                   fontSize: "0.75rem",
-                  color: "#64748B",
+                  color: "var(--text-secondary)",
                 }}
               >
                 {card.subtitle}
@@ -232,8 +232,8 @@ const OverviewDashboardPage = () => {
         {/* Operational Alerts */}
         <div
           style={{
-            background: "#FFFFFF",
-            border: "1px solid #E2E8F0",
+            background: "var(--surface)",
+            border: "1px solid var(--border)",
             borderRadius: "8px",
             padding: "1.5rem",
           }}
@@ -396,8 +396,8 @@ const OverviewDashboardPage = () => {
         {/* Fleet Utilization */}
         <div
           style={{
-            background: "#FFFFFF",
-            border: "1px solid #E2E8F0",
+            background: "var(--surface)",
+            border: "1px solid var(--border)",
             borderRadius: "8px",
             padding: "1.5rem",
           }}
@@ -422,7 +422,7 @@ const OverviewDashboardPage = () => {
           <div
             style={{
               fontSize: "0.9rem",
-              color: "#475569",
+              color: "var(--text-secondary)",
               lineHeight: "1.6",
             }}
           >
@@ -433,7 +433,7 @@ const OverviewDashboardPage = () => {
 
             <div
               style={{
-                background: "#F1F5F9",
+                background: "var(--surface-muted)",
                 borderRadius: "6px",
                 height: "8px",
                 width: "100%",
@@ -458,7 +458,7 @@ const OverviewDashboardPage = () => {
             <span
               style={{
                 fontSize: "0.75rem",
-                color: "#64748B",
+                color: "var(--text-secondary)",
               }}
             >
               {stats.activeVehicles} of{" "}

@@ -97,7 +97,7 @@ const LoginPage = () => {
             style={{
               fontSize: "1.75rem",
               fontWeight: "bold",
-              color: "#0F172A",
+              color: "#2563EB",
               margin: "0 0 0.5rem 0",
             }}
           >
