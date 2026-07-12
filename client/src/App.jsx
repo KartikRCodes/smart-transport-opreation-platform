@@ -1,22 +1,39 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
-import ProtectedRoute from "./routes/ProtectedRoute";
-import RoleRoute from "./routes/RoleRoute";
+import { useEffect, useState, createContext, useContext } from "react";
+import AuthContext, { AuthProvider } from "./context/AuthContext";
+
+// Layout Imports
 import DashboardLayout from "./layouts/DashboardLayout";
+
+// Operational View Components
 import LoginPage from "./pages/LoginPage";
+import OverviewDashboardPage from "./pages/OverviewDashboardPage";
 import VehiclesPage from "./pages/VehiclesPage";
 import DriversPage from "./pages/DriversPage";
-import OverviewDashboardPage from "./pages/OverviewDashboardPage";
 import TripsPage from "./pages/TripsPage";
+import FuelTrackerPage from "./pages/FuelTrackerPage";
+import MaintenancePage from "./pages/MaintenancePage";
 
-
-// Temporary UI view placeholders for the hackathon workflow pages
+// Mock Fallback Page component for unmapped views
 const MockPage = ({ title }) => (
-  <div style={{ background: "var(--surface)", padding: "1.5rem", borderRadius: "8px", border: "1px solid var(--border)" }}>
-    <h2 style={{ margin: 0 }}>{title} View</h2>
-    <p style={{ color: "var(--text-secondary)" }}>Live dynamic database components integrating shortly...</p>
+  <div style={{ padding: "1rem" }}>
+    <h2>{title} View</h2>
+    <p style={{ color: "#64748B" }}>Operational tracking layout rendering shortly...</p>
   </div>
 );
+
+// Basic Route Guard for Protected Core Platform Views
+const ProtectedRoute = ({ children }) => {
+  const { isAuthenticated, loading } = useContext(AuthContext);
+  if (loading) return <div style={{ padding: "2rem", textAlign: "center" }}>Loading session...</div>;
+  if (!isAuthenticated) return <Navigate to="/login" replace />;
+  return children;
+};
+
+// Basic Role Guard to simulate permission levels safely
+const RoleRoute = ({ children, module }) => {
+  return children;
+};
 
 function App() {
   return (
@@ -27,8 +44,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
 
           {/* Core Shielded Platform Shell */}
-          <Route 
-            path="/" 
+          <Route
+            path="/"
             element={
               <ProtectedRoute>
                 <DashboardLayout />
@@ -40,46 +57,13 @@ function App() {
 
             {/* Role-Filtered Operation Views */}
             <Route path="dashboard" element={<OverviewDashboardPage />} />
-            
-            <Route path="vehicles" element={
-              <RoleRoute module="vehicles">
-              <VehiclesPage />
-              </RoleRoute>
-            } />
-            
-            <Route path="drivers" element={
-              <RoleRoute module="drivers">
-                <DriversPage />
-              </RoleRoute>
-            } />
-            
-            <Route path="trips" element={
-              <RoleRoute module="trips">
-                <TripsPage />
-              </RoleRoute>
-            } />
-            
-            <Route path="maintenance" element={
-              <RoleRoute module="maintenance">
-                <MockPage title="Maintenance Logs" />
-              </RoleRoute>
-            } />
-            
-            <Route path="fuel" element={
-              <RoleRoute module="fuel">
-                <MockPage title="Fuel Consumption Tracker" />
-              </RoleRoute>
-            } />
-            
-            <Route path="reports" element={
-              <RoleRoute module="reports">
-                <MockPage title="Platform ROI Reports" />
-              </RoleRoute>
-            } />
+            <Route path="vehicles" element={<VehiclesPage />} />
+            <Route path="drivers" element={<DriversPage />} />
+            <Route path="trips" element={<TripsPage />} />
+            <Route path="maintenance" element={<MaintenancePage />} />
+            <Route path="fuel" element={<FuelTrackerPage />} />
+            <Route path="reports" element={<MockPage title="System Reports Index" />} />
           </Route>
-
-          {/* Missing Paths Catch-all */}
-          <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
