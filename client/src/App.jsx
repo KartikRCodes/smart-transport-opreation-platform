@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState, createContext, useContext } from "react";
 import AuthContext, { AuthProvider } from "./context/AuthContext";
-
+import ReportsPage from "./pages/ReportsPage";
 // Layout Imports
 import DashboardLayout from "./layouts/DashboardLayout";
 
@@ -62,7 +62,7 @@ function App() {
             <Route path="trips" element={<TripsPage />} />
             <Route path="maintenance" element={<MaintenancePage />} />
             <Route path="fuel" element={<FuelTrackerPage />} />
-            <Route path="reports" element={<MockPage title="System Reports Index" />} />
+            <Route path="reports" element={<ReportsPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
